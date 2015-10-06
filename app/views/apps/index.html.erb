@@ -1,0 +1,33 @@
+<h4>Enter App to track here: 
+    <%= form_for App.new do |f| %>
+    <h5>Item
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter name here"  %></h5>
+    <h5>URL
+    <%= f.text_field :url, class: 'form-control', placeholder: "Enter url here"  %></h5>
+    <%= f.submit "Save", class: 'btn btn-default'  %>
+</h4>
+<% end %>
+
+
+
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>URL</th>
+     
+      </tr>
+    </thead>
+    <tbody>  
+      <% @apps.each do |app| %>
+      <tr>
+      <td><%= link_to app.name, app_path(app.id) %></td>
+      <td><%= app.url %>
+        <%= link_to 'edit', edit_app_path(app), class: 'btn btn-success'%> <%= link_to 'delete', app, method: :delete, class: 'btn btn-danger'%>
+      </td>
+      </tr>
+    <% end %>  
+    </tbody>  
+ </table>
+</div>

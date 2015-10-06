@@ -5,3 +5,27 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+ test = User.new(
+   name:     'test User',
+   email:    'test@example.com',
+   password: 'helloworld',
+ )
+ test.skip_confirmation!
+ test.save!
+
+ users = User.all
+
+10.times do
+Apps = App.create!(
+     name: Faker::Lorem.sentence,
+     url: Faker::Lorem.sentence,
+     )
+end
+
+Apps = App.all
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{App.count} apps created"

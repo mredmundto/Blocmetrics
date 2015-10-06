@@ -1,0 +1,9 @@
+<h4>Enter App to track here: 
+    <%= form_for @app do |f| %>
+    <h5>Item
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter name here"  %></h5>
+    <h5>URL
+    <%= f.text_field :url, class: 'form-control', placeholder: "Enter url here"  %></h5>
+    <%= f.submit "Save", class: 'btn btn-default'  %>
+</h4>
+<% end %>
