@@ -17,15 +17,25 @@
 
  users = User.all
 
-10.times do
+3.times do
 Apps = App.create!(
      name: Faker::Lorem.sentence,
      url: Faker::Lorem.sentence,
      )
 end
 
+
+5.times do
+Events = Event.create!(
+     name: Faker::Lorem.sentence,
+     app_id:  1,
+     )
+end
+
+Events = Event.all
 Apps = App.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{App.count} apps created"
+puts "#{Events.count} events created"
