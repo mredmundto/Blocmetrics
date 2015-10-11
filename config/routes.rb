@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
- resources :apps 
+  
+   
+
+   namespace :api, defaults: { format: :json } do 
+     match '/events', to: 'events#index', via: [:options]
+     resources :events, only: [:create]
+   end
+
+
+  resources :apps 
 
   devise_for :users
   get 'welcome/index'
