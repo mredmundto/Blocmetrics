@@ -4,3 +4,10 @@
 <% @events.each do |event| %>
     <p>  <%= event.first %> <%= event.last.count %></p>
 <% end %> 
+
+
+<script src="//www.google.com/jsapi"></script>
+<script src="chartkick.js"></script>
+
+<%= pie_chart @app.events.group(:name).count %>
+<%= line_chart @app.events.group_by_day(:created_at).count %>
